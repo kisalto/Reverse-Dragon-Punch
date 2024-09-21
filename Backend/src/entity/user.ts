@@ -6,25 +6,25 @@ export class User {
     @PrimaryGeneratedColumn()
     id: number;
 
-    @Column()
+    @Column({ nullable: false })
     nickname: string;
 
-    @Column()
+    @Column({ nullable: false })
     email: string;
 
-    @Column()
+    @Column({ nullable: true })
     dc_id: string;
 
-    @Column()
+    @Column({ nullable: false })
     password: string;
 
-    @Column()
+    @Column({ nullable: false })
     dateReg: string;
 
-    @Column()
+    @Column({ default: false })
     isAdmin: boolean;
 
-    @Column()
+    @Column({ default: false })
     isVet: boolean;
 
     constructor(id: number, nickname: string, email: string, dc_id: string, password: string, dateReg: string, isAdmin: boolean, isVet: boolean) {
