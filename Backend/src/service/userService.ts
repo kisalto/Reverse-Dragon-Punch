@@ -7,14 +7,14 @@ export class UserService {
     async save(userData: Partial<User>) {
         if (!userData.nickname)
             throw new HttpException('Nickname is required', HttpStatus.BAD_REQUEST);
-
+    
         if (await this.verifyNickname(userData.nickname))
             throw new HttpException('Nickname taken', HttpStatus.CONFLICT);
-
-        const user = AppDataSource.manager.create(User, userData);
-        await AppDataSource.manager.save(user);
+    
+        const user = AppDataSource.getRepository(User).create(userData);
+        await AppDataSource.getRepository(User).save(user);
     }
-
+    
     async verifyNickname(nickname: string): Promise<User | null> {
         return AppDataSource.getRepository(User).findOneBy({ nickname });
     }

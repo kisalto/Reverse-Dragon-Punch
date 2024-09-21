@@ -12,24 +12,19 @@ routes.get('/users/findAll', async (req, res) => {
 });
 
 routes.get('/users/findById/:id', async (req,res) => {
-    const user = parseInt(req.params.id)
-    return res.json(await userController.findbyId(user))
+    return res.json(await userController.findbyId(parseInt(req.params.id)))
 });
 
 routes.post('/users/save', async (req, res) =>{
-    const userData = req.body;
-    return res.json(await userController.save(userData))
+    return res.json(await userController.save(req.body))
 });
 
 routes.put('/users/update/:id', async (req, res) => {
-    const userData = req.body;
-    const userId = parseInt(req.params.id)
-    return res.json(await userController.update(userData, userId))
+    return res.json(await userController.update(req.body, parseInt(req.params.id)))
 });
 
 routes.delete('/users/delete/:id', async (req, res) => {
-    const user = parseInt(req.params.id)
-    return res.json(await userController.delete(user))
+    return res.json(await userController.delete(parseInt(req.params.id)))
 });
 
 export default routes;
