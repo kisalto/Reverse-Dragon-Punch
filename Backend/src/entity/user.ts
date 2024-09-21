@@ -19,7 +19,7 @@ export class User {
     password: string;
 
     @Column()
-    date: string;
+    dateReg: string;
 
     @Column()
     isAdmin: boolean;
@@ -27,13 +27,13 @@ export class User {
     @Column()
     isVet: boolean;
 
-    constructor(id: number, nickname: string, email: string, dc_id: string, password: string, date: string, isAdmin: boolean, isVet: boolean) {
+    constructor(id: number, nickname: string, email: string, dc_id: string, password: string, dateReg: string, isAdmin: boolean, isVet: boolean) {
         this.id = id;
         this.nickname = nickname;
         this.email = email;
         this.dc_id = dc_id;
         this.password = password;
-        this.date = date;
+        this.dateReg = dateReg;
         this.isAdmin = isAdmin;
         this.isVet = isVet;
     }
