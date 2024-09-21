@@ -27,6 +27,18 @@ export class UserService {
         return AppDataSource.getRepository(User).findOneBy({ id })
     }
 
+    async update(userData: Partial<User>, id: number) {
+        if (!userData.nickname)
+            throw new HttpException('Nickname is required', HttpStatus.BAD_REQUEST);
+
+        const existingUser = await this.verifyNickname(userData.nickname);
+
+        if (existingUser && existingUser.id !== id)
+            throw new HttpException('Nickname taken', HttpStatus.CONFLICT);
+
+        await AppDataSource.getRepository(User).update(id, userData);
+    }
+
     async delete(id: number) {
         return await AppDataSource.getRepository(User).delete(id);
     }

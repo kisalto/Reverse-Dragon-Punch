@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpException, HttpStatus, Param, Post, Put } from "@nestjs/common";
 import { UserService } from "../service/userService";
 import { User } from "../entity/user";
 
@@ -27,6 +27,17 @@ export class UserController {
             return { message: 'User created successfully' }
         } catch (error) {
             throw new HttpException('Error saving user', HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @Put()
+    async update(@Body() userData: Partial<User>, @Param('id') id: number) {
+        try {
+            console.log(userData);
+            await this.userService.update(userData, id);
+            return { message: 'User updated successfully' }
+        } catch (error) {
+            throw new HttpException('Error updating user', HttpStatus.BAD_REQUEST);
         }
     }
 

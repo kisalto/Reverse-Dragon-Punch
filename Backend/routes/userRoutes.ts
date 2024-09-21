@@ -21,12 +21,15 @@ routes.post('/users/save', async (req, res) =>{
     return res.json(await userController.save(userData))
 });
 
-routes.put('/users/update', async (req, res) => {
-
+routes.put('/users/update/:id', async (req, res) => {
+    const userData = req.body;
+    const userId = parseInt(req.params.id)
+    return res.json(await userController.update(userData, userId))
 });
 
-routes.delete('/users/delete', async (req, res) => {
-
+routes.delete('/users/delete/:id', async (req, res) => {
+    const user = parseInt(req.params.id)
+    return res.json(await userController.delete(user))
 });
 
 export default routes;
