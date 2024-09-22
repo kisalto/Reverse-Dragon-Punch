@@ -6,8 +6,9 @@ export const Topbar = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
 
   return (
-    <div className={`${isDialogOpen ? "blur-sm" : ""}`}>
-      <div className="p-4 flex justify-between items-center border-b">
+    <div className="relative">
+      {isDialogOpen && <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"></div>}
+      <div className="p-4 flex justify-between items-center border-b z-20 relative">
         <div className="flex gap-20 pl-60 pr-60">
           <Button variant="outline" className="w-48">Start Here</Button>
           <Button variant="outline" className="w-48">Guide</Button>

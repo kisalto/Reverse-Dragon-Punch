@@ -19,9 +19,10 @@ export const RegisterDialog: React.FC<RegisterDialogProps> = ({
 }) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="relative z-50 flex justify-center items-center">
-        <Card className="p-5 max-w-md w-full">
-          <DialogHeader className="items-center">
+      <DialogContent className="fixed inset-0 flex justify-center items-center z-50">
+        <Card className="relative p-5 max-w-md w-full">
+          <Button onClick={onClose} className="absolute top-3 right-3 rounded-lg">close</Button>
+          <DialogHeader className="items-center mt-3">
             <DialogTitle className="text-3xl font-bold p-4 rounded underline">REGISTER</DialogTitle>
           </DialogHeader>
           <form>
@@ -49,7 +50,7 @@ export const RegisterDialog: React.FC<RegisterDialogProps> = ({
               </label>
               <Input type="password" placeholder="Confirm your password" />
             </div>
-            <Button type="submit" className="w-full">
+            <Button type="submit" className="w-full underline">
               DIVIDE!
             </Button>
           </form>
