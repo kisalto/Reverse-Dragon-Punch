@@ -5,10 +5,14 @@ import eventRoutes from '../routes/eventRoutes'
 import guideRoutes from '../routes/guideRoutes'
 import fighterRoutes from '../routes/fighterRoutes'
 import gameRoutes from '../routes/gameRoutes'
+import cors from 'cors';
 
 const app = express();
 
+app.use(cors({ origin: 'http://localhost:5173' }));
+
 app.use(express.json());
+
 
 //routes
 app.use(routes);
