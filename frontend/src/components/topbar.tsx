@@ -10,11 +10,11 @@ export const Topbar = () => {
       {isDialogOpen && <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-10"></div>}
       <div className="p-4 flex justify-between items-center border-b z-20 relative">
         <div className="flex gap-20 pl-60 pr-60">
-          <Button variant="outline" className="w-48">Start Here</Button>
-          <Button variant="outline" className="w-48">Guide</Button>
-          <Button variant="outline" className="w-48">Community</Button>
-          <Button variant="outline" className="w-48">Characters</Button>
-          <Button onClick={() => setIsDialogOpen(true)} className="w-48">
+          <Button variant="outline" className="w-48 underline">Start Here</Button>
+          <Button variant="outline" className="w-48 underline">Guide</Button>
+          <Button variant="outline" className="w-48 underline">Community</Button>
+          <Button variant="outline" className="w-48 underline">Characters</Button>
+          <Button onClick={() => setIsDialogOpen(true)} className="w-48 underline">
             Login/Register
           </Button>
         </div>

@@ -1,6 +1,7 @@
 import { Topbar } from './components/topbar';
 import { ThemeProvider } from "@/components/theme-provider";
-import { User } from './pages/app/user/user';
+import { Guide } from './pages/app/guide/guides';
+//import { User } from './pages/app/user/user';
 import './index.css';
 
 export function App() {
@@ -10,7 +11,7 @@ export function App() {
         <Topbar />
       </div>
       <div>
-        <User />
+        <Guide />
       </div>
     </ThemeProvider>
   );

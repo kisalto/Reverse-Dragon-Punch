@@ -21,7 +21,7 @@ export const RegisterDialog: React.FC<RegisterDialogProps> = ({
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="fixed inset-0 flex justify-center items-center z-50">
         <Card className="relative p-5 max-w-md w-full">
-          <Button onClick={onClose} className="absolute top-3 right-3 rounded-lg">close</Button>
+          <Button onClick={onClose} className="absolute top-3 right-3 rounded-lg underline">close</Button>
           <DialogHeader className="items-center mt-3">
             <DialogTitle className="text-3xl font-bold p-4 rounded underline">REGISTER</DialogTitle>
           </DialogHeader>
