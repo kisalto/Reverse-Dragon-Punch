@@ -7,7 +7,7 @@ const routes = Router();
 const fighterService = new FighterService();
 const fighterController = new FighterController(fighterService);
 
-routes.get('/fighter/', async (req,res) => {
+routes.get('/fighter/findAll', async (req,res) => {
     return res.json(await fighterController.findAll())
 });
 

@@ -7,7 +7,7 @@ const routes = Router();
 const eventService = new EventService();
 const eventController = new EventController(eventService);
 
-routes.get('/event/', async (req,res) => {
+routes.get('/event/findAll', async (req,res) => {
     return res.json(await eventController.findAll())
 });
 

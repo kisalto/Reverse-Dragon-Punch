@@ -7,7 +7,7 @@ const routes = Router();
 const guideService = new GuideService();
 const guideController = new GuideController(guideService);
 
-routes.get('/guide/', async (req,res) => {
+routes.get('/guide/findAll', async (req,res) => {
     return res.json(await guideController.findAll())
 });
 

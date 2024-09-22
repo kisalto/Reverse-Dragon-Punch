@@ -7,7 +7,7 @@ const routes = Router();
 const gameService = new GameService();
 const gameController = new GameController(gameService);
 
-routes.get('/game/', async (req,res) => {
+routes.get('/game/findAll', async (req,res) => {
     return res.json(await gameController.findAll())
 });
 

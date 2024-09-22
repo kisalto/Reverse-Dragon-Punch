@@ -7,16 +7,19 @@ export class Guide {
     id: number;
 
     @Column()
-    tipo: string;
+    title: string;
 
     @Column()
-    descricao: string;
+    type: string;
+
+    @Column()
+    description: string;
 
     @Column()
     link: string;
 
     @Column()
-    date: string;
+    dateCr: string;
 
     @Column()
     likes: number;
@@ -24,12 +27,13 @@ export class Guide {
     @Column()
     dislikes: number;
 
-    constructor(id: number, tipo: string, descricao: string, link: string, likes: number, date: string, dislikes: number) {
+    constructor(id: number, title: string, type: string, description: string, link: string, likes: number, dateCr: string, dislikes: number) {
         this.id = id;
-        this.tipo = tipo;
-        this.descricao = descricao;
+        this.title = title;
+        this.type = type;
+        this.description = description;
         this.link = link;
-        this.date = date;
+        this.dateCr = dateCr;
         this.likes = likes;
         this.dislikes = dislikes;
     }

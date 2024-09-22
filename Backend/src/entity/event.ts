@@ -7,22 +7,22 @@ export class Event {
     id: number;
 
     @Column()
-    titulo: string;
+    title: string;
 
     @Column()
-    descricao: string;
+    description: string;
 
     @Column()
     link: string;
 
     @Column()
-    date: string;
+    dateCr: string;
 
-    constructor(id: number, titulo: string, descricao: string, link: string, date: string) {
+    constructor(id: number, title: string, description: string, link: string, dateCr: string) {
         this.id = id;
-        this.titulo = titulo;
-        this.descricao = descricao;
+        this.title = title;
+        this.description = description;
         this.link = link;
-        this.date = date;
+        this.dateCr = dateCr;
     }
 }

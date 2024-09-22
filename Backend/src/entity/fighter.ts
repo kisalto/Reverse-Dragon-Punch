@@ -7,18 +7,18 @@ export class Fighter {
     id: number;
 
     @Column()
-    nome: string;
+    name: string;
 
     @Column()
-    descricao: string;
+    description: string;
 
     @Column()
-    tipo: string;
+    type: string;
 
-    constructor(id: number, nome: string, descricao: string, tipo: string) {
+    constructor(id: number, name: string, description: string, type: string) {
         this.id = id;
-        this.nome = nome;
-        this.descricao = descricao;
-        this.tipo = tipo;
+        this.name = name;
+        this.description = description;
+        this.type = type;
     }
 }
