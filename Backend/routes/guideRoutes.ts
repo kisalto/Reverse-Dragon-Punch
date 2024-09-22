@@ -26,3 +26,5 @@ routes.put('/guide/update/:id', async (req,res) => {
 routes.delete('/guide/delete/:id', async (req,res) => {
     return res.json(await guideController.delete(parseInt(req.params.id)))
 });
+
+export default routes;

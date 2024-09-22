@@ -14,9 +14,9 @@ export class GuideController {
 
     errorCatch(error: any) {
         if (error instanceof Error)
-            throw new HttpException(error.message || 'Error finding user', HttpStatus.BAD_REQUEST);
+            throw new HttpException(error.message || 'Error finding guide', HttpStatus.BAD_REQUEST);
         else
-            throw new HttpException('Error finding user', HttpStatus.BAD_REQUEST);
+            throw new HttpException('Error finding guide', HttpStatus.BAD_REQUEST);
     }
 
     @Get()
