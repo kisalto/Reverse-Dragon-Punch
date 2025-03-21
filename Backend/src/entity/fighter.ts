@@ -1,24 +1,35 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+//import { Game } from "./game";
+import { Guide } from "./guide";
 
 @Entity()
 export class Fighter {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    name: string;
+    name!: string;
 
     @Column()
-    description: string;
+    type!: string;
 
     @Column()
-    type: string;
+    strenghts!: string;
 
-    constructor(id: number, name: string, description: string, type: string) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.type = type;
+    @Column()
+    weaknesses!: string;
+
+    @Column()
+    description!: string;
+
+    /*@ManyToOne(() => Game, (game) => game.fighters, { onDelete: "CASCADE" })
+    game!: Game;*/
+
+    @OneToMany(() => Guide, (guide) => guide.fighter)
+    guides!: Guide[];
+
+    constructor(init?: Partial<Fighter>) {
+        Object.assign(this, init);
     }
 }

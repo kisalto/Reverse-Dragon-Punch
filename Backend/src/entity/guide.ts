@@ -1,40 +1,42 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Fighter } from "./fighter";
+//import { Game } from "./game";
+import { User } from "./user";
 
 @Entity()
 export class Guide {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    title: string;
+    title!: string;
 
     @Column()
-    type: string;
+    type!: string;
 
     @Column()
-    description: string;
+    description!: string;
 
     @Column()
-    link: string;
+    link!: string;
 
     @Column()
-    dateCr: string;
+    dateCr!: string;
 
     @Column()
-    likes: number;
-    
-    @Column()
-    dislikes: number;
+    rating!: number;
 
-    constructor(id: number, title: string, type: string, description: string, link: string, likes: number, dateCr: string, dislikes: number) {
-        this.id = id;
-        this.title = title;
-        this.type = type;
-        this.description = description;
-        this.link = link;
-        this.dateCr = dateCr;
-        this.likes = likes;
-        this.dislikes = dislikes;
+    @ManyToOne(() => Fighter, (fighter) => fighter.guides)
+    fighter!: Fighter;
+
+    /*@ManyToOne(() => Game, (game) => game.guides)
+    game!: Game;*/
+
+    @ManyToOne(() => User, (user) => user.guides)
+    user!: User;
+
+    constructor(init?: Partial<Guide>) {
+        Object.assign(this, init);
     }
 }

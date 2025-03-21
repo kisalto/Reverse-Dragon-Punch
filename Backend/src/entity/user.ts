@@ -1,40 +1,41 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Guide } from "./guide";
+import { CommunityEvent } from "./event";
 
 @Entity()
 export class User {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column({ nullable: false })
-    nickname: string;
+    nickname!: string;
 
     @Column({ nullable: false })
-    email: string;
+    email!: string;
 
     @Column({ nullable: true })
-    dc_id: string;
+    dc_id!: string;
 
     @Column({ nullable: false })
-    password: string;
+    password!: string;
 
     @Column({ nullable: false })
-    dateReg: string;
+    dateReg!: string;
 
     @Column({ default: false })
-    isAdmin: boolean;
+    isAdmin!: boolean;
 
     @Column({ default: false })
-    isVet: boolean;
+    isVet!: boolean;
 
-    constructor(id: number, nickname: string, email: string, dc_id: string, password: string, dateReg: string, isAdmin: boolean, isVet: boolean) {
-        this.id = id;
-        this.nickname = nickname;
-        this.email = email;
-        this.dc_id = dc_id;
-        this.password = password;
-        this.dateReg = dateReg;
-        this.isAdmin = isAdmin;
-        this.isVet = isVet;
+    @OneToMany(() => Guide, (guide) => guide.user)
+    guides!: Guide[];
+
+    @OneToMany(() => CommunityEvent, (comEvent) => comEvent.user)
+    comEvents!: CommunityEvent[];
+
+    constructor(init?: Partial<User>) {
+        Object.assign(this, init)
     }
 }

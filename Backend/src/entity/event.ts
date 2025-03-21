@@ -1,28 +1,29 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Min, Max } from "class-validator";
+import { User } from "./user";
 
 @Entity()
-export class Event {
+export class CommunityEvent {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    title: string;
+    title!: string;
 
     @Column()
-    description: string;
+    description!: string;
 
     @Column()
-    link: string;
+    link!: string;
 
     @Column()
-    dateCr: string;
+    dateCr!: string;
 
-    constructor(id: number, title: string, description: string, link: string, dateCr: string) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.link = link;
-        this.dateCr = dateCr;
+    @ManyToOne(() => User, (user) => user.comEvents)
+    user!: User;
+
+    constructor(init?: Partial<CommunityEvent>) {
+        Object.assign(this, init);
     }
 }

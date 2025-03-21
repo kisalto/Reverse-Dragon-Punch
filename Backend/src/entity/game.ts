@@ -1,28 +1,35 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+/*import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Fighter } from "./fighter";
+import { Guide } from "./guide";
 
 @Entity()
 export class Game {
 
     @PrimaryGeneratedColumn()
-    id: number;
+    id!: number;
 
     @Column()
-    name: string;
+    name!: string;
 
     @Column()
-    description: string;
+    alias!: string;
 
     @Column()
-    link: string;
+    description!: string;
 
     @Column()
-    price: number;
+    link!: string;
 
-    constructor(id: number, name: string, description: string, link: string, price: number) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.link = link;
-        this.price = price;
+    @Column()
+    price!: number;
+
+    @OneToMany(() => Fighter, (fighter) => fighter.game)
+    fighters!: Fighter[];
+
+    @OneToMany(() => Guide, (guide) => guide.game)
+    guides!: Guide[];
+
+    constructor(init?: Partial<Game>) {
+        Object.assign(this, init)
     }
-}
+}*/
